@@ -1,0 +1,8 @@
+<div class="blog-archive-menu">
+    <h3>Archive</h3>
+    <ul>
+        {% for m in months|dictsortreversed:"date" %}
+            <li><a href="{% url blog.views.show_month m.date.year m.date.month %}">{{m.date|date:"F Y"}}</a></li>
+        {% endfor %}
+    </ul>
+</div>

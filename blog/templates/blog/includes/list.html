@@ -1,0 +1,17 @@
+{% if posts %}
+    {% for p in posts %}
+        <div class="blog-list-entry">
+            <p class="date"><a href="{% url blog.views.show_post p.date.year p.date.month p.title %}">{{p.date|date:"l, F d Y"}}</a> <span class="author">(Posted by {{p.author.first_name}})</span></p>
+            <h2>{{p.title}}</h2>
+            <div class="blog-post-content">
+                {% autoescape off %}
+                    {{p.content}}
+                {% endautoescape %}
+            </div>
+
+        </div>
+    {% endfor %}
+{% else %}
+    <p>No posts to display</p>
+{% endif %}
+

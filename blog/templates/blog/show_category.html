@@ -1,0 +1,17 @@
+{% extends "blog/base.html" %}
+
+{% block breadcrumbs %}
+    <li><a href="/">Home</a> &raquo; </li>
+    <li><a href="{% url blog.views.home %}">Blog</a> &raquo; </li>
+    <li>category: {{category}}</li>
+{% endblock %}
+
+{% block blog_content %}
+    {% comment %}
+    <p class="blog-back-link"><a href="{% url blog.views.home %}">&lt;&lt;&lt; Latest posts</a></p>
+    {% endcomment %}
+    <h3>Category '{{category}}':</h3>
+    {% include "blog/includes/list.html" %}
+{% endblock %}
+
+

@@ -1,0 +1,19 @@
+{% extends "three_column.html" %}
+
+{% block breadcrumbs %}
+    <li><a href="/">Home</a> &raquo; </li>
+    <li>Blog</a></li>
+{% endblock %}
+
+{% block content %}
+    <div class="blog-content">
+        {% block blog_content %}
+            BLOG CONTENT HERE
+        {% endblock %}
+    </div> 
+{% endblock %}
+
+{% block right_sidebar %}
+    {% include "blog/includes/category_menu.html" %}
+    {% include "blog/includes/archive_menu.html" %}
+{% endblock %}

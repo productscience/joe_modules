@@ -1,0 +1,18 @@
+{% extends "blog/base.html" %}
+
+{% block breadcrumbs %}
+    <li><a href="/">Home</a> &raquo; </li>
+    <li><a href="{% url blog.views.home %}">Blog</a> &raquo; </li>
+    <li><a href="{% url blog.views.show_month post.date.year post.date.month %}">{{post.date|date:"F Y"}}</a> &raquo;</li>
+    <li>{{post.title}}</li>
+{% endblock %}
+
+{% block blog_content %}
+    {% comment %}
+    <p class="blog-back-link"><a href="{% url blog.views.home %}">&lt;&lt;&lt; Latest posts</a></p>
+    <br/>
+    {% endcomment %}
+    {% include "blog/includes/list.html" %}
+{% endblock %}
+
+
