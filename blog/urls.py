@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import *
 
-urlpatterns = patterns('joe_modules.blog.views',
+urlpatterns = patterns('blog.views',
     (r'^/?$', 'blog_home'),
     #(r'^ticker/([^/]*)/$', 'ticker'),
 )
