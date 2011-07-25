@@ -1,1 +1,8 @@
-FISH
+<script type="text/javascript" src="{{MEDIA_URL}}js/jquery.cycle.all.2.74.js"></script>
+<!-- START OF GALLERY HTML -->
+<ul class="gallery">
+    {% for slide in slides %}
+        {% include 'slides/includes/slide.html' %}
+    {% endfor %}
+</ul>
+<!-- END OF GALLERY HTML -->
