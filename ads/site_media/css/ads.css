@@ -1,0 +1,60 @@
+
+/*start post-area*/
+.post-area .posts-list {
+	float:left;
+	width:274px;
+	padding:0 24px 0 0;
+	font-size:11px;
+	line-height:14px;
+	color:#373737;
+}
+.post-area .posts-list li {
+	vertical-align:top;
+	width: 100%;
+	overflow:hidden;
+	height: 82px;
+	margin:0 0 7px;
+	border:1px solid #dbdbd3;
+	position:relative;
+	background:#fff;
+}
+.post-area .posts-list .post-img-holder {
+	float:left;
+	width:82px;
+	position:relative;
+	cursor:pointer;
+}
+.post-area .posts-list .post-img-holder img {float:left;}
+.post-area .posts-list .text {
+	float:right;
+	line-height:15px;
+	padding:6px 2px 0 0;
+	width:178px;
+}
+.post-area .posts-list h2 {
+	font-size:15px;
+	line-height:18px;
+	margin:0 0 4px;
+}
+.post-area h2,
+.post-area h2 a {color:#83be1d;}
+.post-area .take-action h2,
+.post-area .take-action h2 a {color:#007B98;}
+.post-area .posts-list a.over-link {
+    height: 82px;
+    width: 274px;
+}
+
+a.over-link, a.over-link:active, a.over-link:visited, a.over-link:link {
+    position: absolute;
+    left:0;
+    top: 0;
+    height: 8px;
+    width: 8px;
+    text-indent: -9999px;
+    overflow: hidden;
+    background: none;
+}
+
+
+/*end post-area*/

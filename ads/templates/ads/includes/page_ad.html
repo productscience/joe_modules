@@ -1,0 +1,15 @@
+{% load thumbnail_tags %}
+
+{% if ad %}
+<li>
+        <a href="#" class="post-img-holder">
+                <img src="{% resize_image ad.image 82 82 %}" width="82" height="82" alt="image description" />
+        
+        </a>
+        <div class="text">
+                <h2><a href="#">{{ad.headline}}</a></h2>
+                <p>{{ad.short_lead}}</p>
+        </div>
+        <a class="over-link" href="{{ad.get_absolute_url}}">Click to see more</a>
+</li>
+{% endif %}

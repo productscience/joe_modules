@@ -1,0 +1,52 @@
+
+.gallery-holder{
+	float:left;
+	position:relative;
+	padding:0 0 0 0px;
+}
+.gallery{
+	position:relative;
+	overflow:hidden;
+}
+ul.gallery {
+    padding: 0;
+    margin: 0;
+}
+.gallery li{
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:0;
+        background-color: #E8E7DC;
+}
+.gallery li .img-box{
+	float:left;
+}
+.gallery li .img-box img{display:block;}
+.gallery li .info{
+	float:left;
+}
+.gallery-nav{
+	width:100%;
+	overflow:hidden;
+	position:absolute;
+	bottom:0px;
+	z-index:10;
+}
+.gallery-nav li{
+	float:left;
+	padding:0 18px 0 0;
+}
+.gallery-nav a{
+	float:left;
+	font-weight:bold;
+        font-size: 14px;
+	line-height:25px;
+	padding:0 12px 0 0;
+}
+
+.gallery .link a {
+    position: absolute;
+    display: block;
+}
+

@@ -1,8 +1,58 @@
-<script type="text/javascript" src="{{MEDIA_URL}}js/jquery.cycle.all.2.74.js"></script>
-<!-- START OF GALLERY HTML -->
-<ul class="gallery">
-    {% for slide in slides %}
-        {% include 'slides/includes/slide.html' %}
-    {% endfor %}
-</ul>
-<!-- END OF GALLERY HTML -->
+{% load thumbnail_tags %}
+{% load humanize %}
+
+<script type="text/javascript" src="{{MEDIA_URL}}slides/js/jquery.cycle.all.2.74.js"></script> 
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.gallery-holder .gallery').cycle({
+            fx: 'fade',
+            pager: '.gallery-nav'
+        });
+    });
+</script>
+
+<style>
+    .gallery-nav a {
+        color: {{nav_inactive_col}};
+    }
+    .gallery-nav a:hover,
+    .gallery-nav a.activeSlide {
+            color: {{nav_active_col}};
+            text-decoration:none;
+    }
+
+</style>
+
+<div class="gallery-holder gallery3" style = "width: {{total_x}}px;">
+    <ul class="gallery" style="width: {{total_x}}px; height: {{image_y}}px;">
+        
+        {% for s in slides %}
+            <li>
+                <div class="link">
+                    <a  href="{{s.page.get_absolute_url}}"
+                        {% if s.mouseover %}title="{{s.mouseover}}"{% endif %}
+                        style="height: {{image_y}}px; width: {{total_x}}px;"
+                    ></a>
+                </div>
+                <div class="img-box" style="width: {{image_x}}px;">
+                    <img src="{% resize_image s.image image_x image_y %}" alt="image" />
+                </div>
+                <div class="info mark{{s.number}}" style="width: {{info_x}}px; height: {{info_y}}px; padding: {{pad_top}}px {{pad_right}}px 0px {{pad_left}}px;">
+                    <h3>{{s.headline}}</h3>
+                    <p>{{s.caption}}</p>
+                </div>
+            </li>
+        {% endfor %}
+
+    </ul>
+    <ul class="gallery-nav" style="left: {{image_x}}px; padding-left: {{pad_left}}px;">
+        {% comment %}
+            {% for s in slides %}
+                <li><a href="#">{{s.number}}</a></li>
+            {% endfor %}
+        {% endcomment %}
+    </ul>
+</div><!-- /gallery-holder end -->
+    <div style="clear:both;"></div>
