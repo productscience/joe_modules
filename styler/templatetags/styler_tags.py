@@ -24,6 +24,13 @@ def make_rounded_left(cr) :
 -moz-border-radius-bottomleft:%spx;""" % (cr,cr,cr,cr)
 
 @register.simple_tag
+def make_rounded_right(cr) :
+    return """-webkit-border-top-right-radius:%spx;
+-webkit-border-bottom-right-radius:%spx;
+-moz-border-radius-topright:%spx;
+-moz-border-radius-bottomright:%spx;""" % (cr,cr,cr,cr)
+
+@register.simple_tag
 def make_rounded_bottom(cr) :
     return """-webkit-border-bottom-left-radius:%spx;
 -webkit-border-bottom-right-radius:%spx;

@@ -13,7 +13,7 @@ IMAGE_UPLOAD_DIR = getattr(settings, ns + "IMAGE_UPLOAD_DIR", "uploads/slide_ima
 # Dimensions
 IMAGE_X = getattr(settings, ns + "IMAGE_X", 270)
 IMAGE_Y = getattr(settings, ns + "IMAGE_X", 250)
-TOTAL_X = getattr(settings, ns + "IMAGE_X", 572)
+TOTAL_X = getattr(settings, ns + "IMAGE_X", 575)
 PAD_TOP = getattr(settings, ns + "PAD_TOP", 15)
 PAD_LEFT = getattr(settings, ns + "PAD_LEFT", 30)
 PAD_RIGHT = getattr(settings, ns + "PAD_RIGHT", 15)

@@ -27,18 +27,14 @@
 
 <div class="gallery-holder gallery3" style = "width: {{total_x}}px;">
     <ul class="gallery" style="width: {{total_x}}px; height: {{image_y}}px;">
-        
         {% for s in slides %}
             <li>
                 <div class="link">
                     <a  href="{{s.page.get_absolute_url}}"
                         {% if s.mouseover %}title="{{s.mouseover}}"{% endif %}
-                        style="height: {{image_y}}px; width: {{total_x}}px;"
-                    ></a>
+                        style="height: {{image_y}}px; width: {{total_x}}px;"></a>
                 </div>
-                <div class="img-box" style="width: {{image_x}}px;">
-                    <img src="{% resize_image s.image image_x image_y %}" alt="image" />
-                </div>
+                <div class="img-box" style="width: {{image_x}}px;"><img src="{% resize_image s.image image_x image_y %}" alt="image" /></div>
                 <div class="info mark{{s.number}}" style="width: {{info_x}}px; height: {{info_y}}px; padding: {{pad_top}}px {{pad_right}}px 0px {{pad_left}}px;">
                     <h3>{{s.headline}}</h3>
                     <p>{{s.caption}}</p>

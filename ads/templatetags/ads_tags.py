@@ -28,10 +28,12 @@ class GetSlotsNode(template.Node):
         
         class SlotInfo : pass
         slots = {}
-        for slot_id, name, fill_random in SLOTS :
+        for slot_id, name, fill_random, img_x, img_y in SLOTS :
             slots[slot_id] = SlotInfo()
             slots[slot_id].name = name
             slots[slot_id].fill_random = fill_random
+            slots[slot_id].img_x = img_x
+            slots[slot_id].img_y = img_y
 
         #fill slots with ads that want to be pinned
         for slot_id, slot in slots.iteritems() :
@@ -46,17 +48,13 @@ class GetSlotsNode(template.Node):
                     chosen, unpinned = choose([(ad,ad.priority) for ad in unpinned], 1)
                     slot.ad = chosen[0]
      
-        raise RuntimeError, str( [s.ad for s in slots.values() ] )
-      
         #prepare slot lists
         slotset = {}
         for name, slot_ids in SLOTSETS :
-            slotset[name] = [ slots[slot_id].ad for slot_id in slot_ids ]
+            slotset[name] = [ slots[slot_id] for slot_id in slot_ids ]
 
         #attach data to request object -- BAD BEHAVIOUR !! Can't find another way around block scope in templates at the moment
         context['request'].ads = { 'slot_sets' : slotset }
-
-        raise RuntimeError, str(context['request'].ads)
 
         return ""
 

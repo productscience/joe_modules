@@ -5,8 +5,9 @@ from django.conf import settings
 ns = getattr(settings, "JOE_DJANGO_ADS_NAMESPACE", "ADS") + "_"
 
 #SLOTS
-example_slots = [   (1, 'Slot 1 - First of small boxes'),
-                    (2, 'Slot 2 - Second of small boxes'),  ]
+                    #id #name                               #fill with random   #image_x    #image_y
+example_slots = [   (1, 'Slot 1 - First of small boxes',    True,               82,         82),
+                    (2, 'Slot 2 - Second of small boxes',   True,               82,         82),  ]
 SLOTS = getattr(settings, ns + "SLOTS", example_slots)
 
 
@@ -21,4 +22,6 @@ standard_priorities = [     (4, 'Very high'),
                             (2, 'Medium'),
                             (1, 'Low'),     ]
 PRIORITIES = getattr(settings, ns + "PRIORITIES", standard_priorities)
+
+
 

@@ -2,47 +2,43 @@
 /*start post-area*/
 .post-area .posts-list {
 	float:left;
-	width:274px;
-	padding:0 24px 0 0;
-	font-size:11px;
-	line-height:14px;
-	color:#373737;
+	width:272px;
+        padding: 0;
+        margin: 0;
 }
 .post-area .posts-list li {
 	vertical-align:top;
 	width: 100%;
 	overflow:hidden;
-	height: 82px;
-	margin:0 0 7px;
-	border:1px solid #dbdbd3;
+	height: 77px;
+	margin:0 0 8px;
 	position:relative;
-	background:#fff;
 }
 .post-area .posts-list .post-img-holder {
 	float:left;
-	width:82px;
+	width:77px;
 	position:relative;
 	cursor:pointer;
 }
-.post-area .posts-list .post-img-holder img {float:left;}
+.post-area .posts-list .post-img-holder img {
+        float:left;
+	border:1px solid #c8c8c8;
+        border-right: none;
+        background: #c8c8c8;
+        }
 .post-area .posts-list .text {
 	float:right;
 	line-height:15px;
-	padding:6px 2px 0 0;
-	width:178px;
+	padding:4px 10px 0 10px;
+	width:174px;
+        height: 71px;
+        background: #fff;
+	border:1px solid #c8c8c8;
+        border-left: none;
 }
-.post-area .posts-list h2 {
-	font-size:15px;
-	line-height:18px;
-	margin:0 0 4px;
-}
-.post-area h2,
-.post-area h2 a {color:#83be1d;}
-.post-area .take-action h2,
-.post-area .take-action h2 a {color:#007B98;}
 .post-area .posts-list a.over-link {
-    height: 82px;
-    width: 274px;
+    height: 77px;
+    width: 272px;
 }
 
 a.over-link, a.over-link:active, a.over-link:visited, a.over-link:link {
