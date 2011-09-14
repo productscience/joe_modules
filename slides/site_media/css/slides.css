@@ -28,7 +28,7 @@ ul.gallery {
 	float:left;
 }
 .gallery-nav{
-	width:100%;
+	width:275px;
 	overflow:hidden;
 	position:absolute;
 	bottom:0px;
