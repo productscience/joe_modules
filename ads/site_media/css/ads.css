@@ -1,5 +1,9 @@
 
 /*start post-area*/
+.post-area ul.posts-list {
+    list-style-type: none;
+}
+
 .post-area .posts-list {
 	float:left;
 	width:272px;
