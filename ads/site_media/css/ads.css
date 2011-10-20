@@ -35,6 +35,7 @@
         background: #fff;
 	border:1px solid #c8c8c8;
         border-left: none;
+        z-index: 1;
 }
 .post-area .posts-list a.over-link {
     height: 77px;
@@ -45,11 +46,11 @@ a.over-link, a.over-link:active, a.over-link:visited, a.over-link:link {
     position: absolute;
     left:0;
     top: 0;
-    height: 8px;
-    width: 8px;
+/*    height: 8px;
+    width: 8px; */
     text-indent: -9999px;
-    overflow: hidden;
-    background: none;
+    background: url(/site_media/ads/images/spacer.gif) repeat;
+    z-index: 10;
 }
 
 
