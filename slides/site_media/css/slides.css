@@ -49,5 +49,7 @@ ul.gallery {
 .gallery .link a {
     position: absolute;
     display: block;
+    z-index: 9;
+    background: url(/site_media/slides/images/spacer.gif) repeat;
 }
 
