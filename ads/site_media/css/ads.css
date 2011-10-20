@@ -27,10 +27,10 @@
         background: #c8c8c8;
         }
 .post-area .posts-list .text {
-	float:right;
+	float:left;
 	line-height:15px;
 	padding:4px 10px 0 10px;
-	width:174px;
+	width:173px;
         height: 71px;
         background: #fff;
 	border:1px solid #c8c8c8;
