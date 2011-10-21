@@ -1,0 +1,23 @@
+*** contrib/admin/widgets.py	2011-10-21 16:42:53.000000000 +0000
+--- contrib/admin/widgets__mod.py	2011-10-21 16:42:32.000000000 +0000
+***************
+*** 149,155 ****
+      def label_for_value(self, value):
+          key = self.rel.get_related_field().name
+          obj = self.rel.to._default_manager.get(**{key: value})
+!         return '&nbsp;<strong>%s</strong>' % escape(truncate_words(obj, 14))
+  
+  class ManyToManyRawIdWidget(ForeignKeyRawIdWidget):
+      """
+--- 149,159 ----
+      def label_for_value(self, value):
+          key = self.rel.get_related_field().name
+          obj = self.rel.to._default_manager.get(**{key: value})
+!         return '&nbsp;<strong><a href="../../../%s/%s/%s/">%s</a></strong>' % \
+!             (obj._meta.app_label,
+!             obj._meta.object_name.lower(), 
+!             obj.pk,
+!             truncate_words(obj, 14))
+  
+  class ManyToManyRawIdWidget(ForeignKeyRawIdWidget):
+      """
