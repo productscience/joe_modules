@@ -1,15 +1,6 @@
-{% load thumbnail_tags %}
-
 {% if slot.ad %}
-<li>
-        <a href="#" class="post-img-holder">
-                <img src="{% resize_image slot.ad.image slot.img_x slot.img_y %}" width="{{slot.img_x}}" height="{{slot.img_y}}" alt="image description" />
-        
-        </a>
-        <div class="text">
-                <h2><a href="#">{{slot.ad.headline}}</a></h2>
+        <div class="pa">
+                <h2>{{slot.ad.headline}}</h2>
                 <p>{{slot.ad.short_lead}}</p>
         </div>
-        <a class="over-link" href="{{slot.ad.get_absolute_url}}">Click to see more</a>
-</li>
 {% endif %}
