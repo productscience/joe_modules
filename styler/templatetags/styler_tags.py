@@ -1,8 +1,6 @@
 from django import template
-register = template.Library()
 import styler.colour as col
-import Image, ImageDraw, ImageFont, ImageFilter
-from settings import MEDIA_ROOT, SITE_ROOT
+register = template.Library()
 
 @register.simple_tag
 def blend(bg, fg, alpha):
@@ -50,5 +48,3 @@ def make_rounded(cr) :
     return """-webkit-border-radius: %spx;
 -moz-border-radius: %spx;
 border-radius:%spx;""" % (cr,cr,cr)
-
-
