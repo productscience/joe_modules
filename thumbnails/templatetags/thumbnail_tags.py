@@ -3,13 +3,17 @@ import os
 from django import template
 from django.conf import settings
 
-import Image as pil
+from PIL import Image as pil
 
 register = template.Library()
 
 
 @register.simple_tag
 def resize_image(image, width, height, force=True):
+    """
+    Tries to fetch a pre-created thumbnail of an image, and if it doesn't
+    exist, uses PIL to crop and resize a new one.
+    """
 
     try:
         path = str(image)
@@ -24,6 +28,7 @@ def resize_image(image, width, height, force=True):
     cache_directory = ("/%s/resized_%d_%d" %
                        (dirname, width, height)).replace("//", "/")
     cache_path = cache_directory
+
     try:
         if not os.path.exists(settings.MEDIA_ROOT + "/" + cache_path):
             os.mkdir(settings.MEDIA_ROOT + "/" + cache_path)
@@ -49,10 +54,11 @@ def resize_image(image, width, height, force=True):
 
 #    print "path_to_original", path_to_original
 
-    try:
-        img = pil.open(path_to_original)
-    except IOError:  # file has been deleted?
-        return None
+    # try:
+    img = pil.open(path_to_original)
+    # except IOError:  # file has been deleted?
+        # raise(IOError)
+        # return None
 
     if not force:
         img.thumbnail((width, height), pil.ANTIALIAS)
