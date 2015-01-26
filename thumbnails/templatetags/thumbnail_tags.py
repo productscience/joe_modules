@@ -65,7 +65,7 @@ def resize_image(image, width, height, force=True):
     else:
         src_width, src_height = img.size
         src_ratio = float(src_width) / float(src_height)
-        dst_width, dst_height = width, height
+        dst_width, dst_height = int(width), int(height)
         dst_ratio = float(dst_width) / float(dst_height)
 
         if dst_ratio < src_ratio:
@@ -78,9 +78,14 @@ def resize_image(image, width, height, force=True):
             crop_height = crop_width / dst_ratio
             x_offset = 0
             y_offset = float(src_height - crop_height) / 3
+
         img = img.crop(
-            (x_offset, y_offset, x_offset + int(crop_width), y_offset + int(crop_height)))
-        img = img.resize((dst_width, dst_height), pil.ANTIALIAS)
+            (int(x_offset),
+             int(y_offset),
+             int(x_offset + crop_width),
+             int(y_offset + crop_height)))
+
+        img = img.resize((int(dst_width), int(dst_height)), pil.ANTIALIAS)
 
     img.save(path_to_thumb)
 
