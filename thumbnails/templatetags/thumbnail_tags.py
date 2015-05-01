@@ -15,12 +15,16 @@ def resize_image(image, width, height, force=True):
     exist, uses PIL(low) to crop and resize a new one.
     """
 
+    if not image.name:
+        return None
+
     try:
         path = image.name
+        path_to_original = settings.MEDIA_ROOT + "/" +  image.name
     except AttributeError:
         return None
 
-    if not os.path.exists(path):
+    if not os.path.exists(path_to_original):
         # there is no image where the original is expected to be
         # had it been deleted?
         return None
@@ -62,7 +66,6 @@ def _createthumbnail(image, width, height, force, path_to_thumb,
     """
     # create the resized image
     path_to_original = settings.MEDIA_ROOT + "/" + path
-    # try:
 
     img = pil.open(path_to_original)
 
