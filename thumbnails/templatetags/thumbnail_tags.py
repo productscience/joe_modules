@@ -12,15 +12,17 @@ register = template.Library()
 def resize_image(image, width, height, force=True):
     """
     Tries to fetch a pre-created thumbnail of an image, and if it doesn't
-    exist, uses PIL to crop and resize a new one.
+    exist, uses PIL(low) to crop and resize a new one.
     """
 
     try:
-        path = str(image)
+        path = image.name
     except AttributeError:
         return None
 
-    if not path:
+    if not os.path.exists(path):
+        # there is no image where the original is expected to be
+        # had it been deleted?
         return None
 
     # get or create name of cache directory
@@ -48,17 +50,21 @@ def resize_image(image, width, height, force=True):
     # attempt to open cached image
     if os.path.exists(path_to_thumb):
         return thumb_url
+    else:
+        return _createthumbnail(thumb_url, width, height, force, path_to_thumb,
+            thumb_url, path)
 
+
+def _createthumbnail(image, width, height, force, path_to_thumb,
+                     thumb_url, path):
+    """
+    Generates a thumbnail for the
+    """
     # create the resized image
     path_to_original = settings.MEDIA_ROOT + "/" + path
-
-#    print "path_to_original", path_to_original
-
     # try:
+
     img = pil.open(path_to_original)
-    # except IOError:  # file has been deleted?
-        # raise(IOError)
-        # return None
 
     if not force:
         img.thumbnail((width, height), pil.ANTIALIAS)
