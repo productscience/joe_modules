@@ -8,7 +8,7 @@ from blog.settings import N_HOME_POSTS
 def getc(request):
     c = RequestContext(request)
     c['categories'] = Category.objects.all()
-    
+
     #sort out months menu (archive)
     stats = {}      # {<date> : n_posts, ... }
     for p in Post.objects.all():
@@ -34,7 +34,7 @@ def show_month(request, year, month) :
     month = int(month)
     start = datetime.date(year, month, 01)
     end = datetime.date(year, month+1, 01)
-    c['posts'] = Post.objects.filter(date__gte=start, date__lt=end).order_by("date")
+    c['posts'] = Post.objects.filter(date__gte=start, date__lt=end).order_by("-date")
     c['month'] = start
     return render_to_response("blog/show_month.html", c)
 
@@ -46,11 +46,6 @@ def show_post(request, year, month, title) :
 
 def show_category(request, category) :
     c = getc(request)
-    c['posts'] = Post.objects.filter(categories__name=category).order_by("date")
+    c['posts'] = Post.objects.filter(categories__name=category).order_by("-date")
     c['category'] = category
     return render_to_response("blog/show_category.html", c)
-
-
-
-
-
