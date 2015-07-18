@@ -1,5 +1,6 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from django.http import Http404
 import datetime
 
 from blog.models import Post, Category
@@ -41,8 +42,11 @@ def show_month(request, year, month) :
 def show_post(request, year, month, title) :
     c = getc(request)
     c['posts'] = Post.objects.filter(title=title)
-    c['post'] = c['posts'][0]
-    return render_to_response("blog/show_post.html", c)
+    if c['posts']:
+        c['post'] = c['posts'][0]
+        return render_to_response("blog/show_post.html", c)
+    else:
+        raise Http404("Not posts matching that title exist")
 
 def show_category(request, category) :
     c = getc(request)
