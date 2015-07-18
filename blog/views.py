@@ -33,8 +33,17 @@ def show_month(request, year, month) :
     c = getc(request)
     year = int(year)
     month = int(month)
-    start = datetime.date(year, month, 01)
-    end = datetime.date(year, month+1, 01)
+    try:
+        start = datetime.date(year, month, 01)
+    # gracefully catch months greater than 13
+    except ValueError:
+        raise Http404("there are no valid months after 12")
+
+    if month < 12:
+        end = datetime.date(year, month+1, 01)
+    elif month == 12:
+        end = datetime.date(year, month, 01)
+
     c['posts'] = Post.objects.filter(date__gte=start, date__lt=end).order_by("-date")
     c['month'] = start
     return render_to_response("blog/show_month.html", c)
